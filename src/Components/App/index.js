@@ -1,16 +1,15 @@
 import './App.css';
-import Input from '../Input';
+import Add from '../Add';
 import List from '../List';
-import Item from '../Item';
+import 'antd/dist/antd.min.css'
 
 
 function App() {
   return (
     <div className="App">
       <h1>hi it is project tracker</h1>
-      <Input />
+      <Add />
       <List />
-      <Item />
     </div>
   );
 }
