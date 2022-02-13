@@ -1,16 +1,17 @@
 import './App.css';
-import Add from '../Add';
-import List from '../List';
 import 'antd/dist/antd.min.css'
+import Add from '../Add';
+// import List from '../List';
 
 
 function App() {
+
   return (
-    <div className="App">
-      <h1>hi it is project tracker</h1>
-      <Add />
-      <List />
-    </div>
+      <div className="App">
+          <h1>PROJECT TRACKER</h1>
+          <Add />
+          {/* <List/> */}
+      </div>
   );
 }
 

@@ -1,6 +1,7 @@
 .App {
+  width:100vw;
   text-align: center;
-  background-color: #ffffff;
+  background-color: #e79090;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,4 +9,23 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.addURLButton {
+  color:black;
+}
+
+.addProject {
+  width: 80%;
+  border: 2px solid grey;
+  margin-bottom: 50px;
+}
+
+.list {
+    width: 80%;
+  border: 2px solid grey;
+  margin-bottom: 50px;
+}
+h2 {
+  text-decoration: underline;
 }
