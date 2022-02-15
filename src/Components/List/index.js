@@ -5,7 +5,9 @@ export default function List() {
     const [projectList, setProjectList] = useState([])
     useEffect(()=>{
         async function getData(){
-            const reponse = await fetch("https://sunny-project-tracker.herokuapp.com/projects")
+            const reponse = await fetch(
+                "https://hyosun-project-tracker.herokuapp.com/projects"
+            );
             const data = await reponse.json();
             console.log(data.payload)
             setProjectList(data.payload)

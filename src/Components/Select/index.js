@@ -1,35 +1,18 @@
 import { Radio } from "antd";
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-export default function Select() {
-    const [projectType, setProjectType] = useState(Boolean)
-    const [disabled, setDisabled] = useState(false)
-
-    const weeks = []
-    for (let week = 1; week < 13; week++) {
-        weeks.push(week);
-    }
-
-    const days = []
-    for (let day = 1; day < 6; day++) {
-        days.push(day);
-    }
-
-    function onProjectTypeChange(e) {
-        console.log(`It is ${e.target.value}`);
-        setProjectType(e.target.value)
-    }
-
-    useEffect(()=>{
-        if (projectType === false) {
-            setDisabled(true);
-        } else if (projectType === true) {
-            setDisabled(false);
-        }
-    }, [projectType])
+export default function Select({ projectType, onProjectTypeChange, weeks, days }) {
+        const [disabled, setDisabled] = useState(false);
+        useEffect(() => {
+            if (projectType === false) {
+                setDisabled(true);
+            } else if (projectType === true) {
+                setDisabled(false);
+            }
+        }, [projectType]);
 
     return (
-        <>
+        <div>
             <Radio.Group className="projectType"
                 onChange={onProjectTypeChange}
                 defaultValue="Team Project"
@@ -60,7 +43,8 @@ export default function Select() {
                 })}
             </Radio.Group>
             
-        </>
+        </div>
+        
     );
 
 };
