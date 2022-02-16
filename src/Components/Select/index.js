@@ -1,8 +1,9 @@
 import { Radio } from "antd";
 import React, { useState, useEffect } from 'react'
 
-export default function Select({ projectType, onProjectTypeChange, weeks, days }) {
+export default function Select({ handleChangeWeek, handleChangeDay, projectType, onProjectTypeChange, weeks, days }) {
         const [disabled, setDisabled] = useState(false);
+        
         useEffect(() => {
             if (projectType === false) {
                 setDisabled(true);
@@ -10,6 +11,7 @@ export default function Select({ projectType, onProjectTypeChange, weeks, days }
                 setDisabled(false);
             }
         }, [projectType]);
+
 
     return (
         <div>
@@ -24,6 +26,7 @@ export default function Select({ projectType, onProjectTypeChange, weeks, days }
             </Radio.Group>
             <br />
             <Radio.Group className="weeks"
+                onChange={handleChangeWeek}
                 disabled={disabled}
                 defaultValue="1"
             >
@@ -35,6 +38,7 @@ export default function Select({ projectType, onProjectTypeChange, weeks, days }
             </Radio.Group>
             <br />
             <Radio.Group className="days"
+                onChange={handleChangeDay}
                 disabled={disabled}
                 defaultValue="1"
             >
