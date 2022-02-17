@@ -3,13 +3,16 @@ import Item from "../Item";
 
 export default function List() {
     const [projectList, setProjectList] = useState([])
+    
     useEffect(()=>{
         async function getData(){
-            const reponse = await fetch(
-                "https://hyosun-project-tracker.herokuapp.com/projects"
+            const response = await fetch(
+                "http://localhost:5432/projects/"
+                // {
+                //     mode: "no-cors",
+                // }
             );
-            const data = await reponse.json();
-            console.log(data.payload)
+            const data = await response.json();
             setProjectList(data.payload)
         }
         getData()
@@ -23,4 +26,5 @@ export default function List() {
             })}
         </section>
     );
+    // return null;
 };
