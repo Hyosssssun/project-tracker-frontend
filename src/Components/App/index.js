@@ -2,15 +2,16 @@ import './App.css';
 import 'antd/dist/antd.min.css'
 import Add from '../Add';
 import List from '../List';
+import React, { useState } from 'react'
 
 
 function App() {
-
+  const [posted, setPosted] = useState(0);
   return (
       <div className="App">
           <h1>PROJECT TRACKER</h1>
-          <Add />
-          <List/>
+          <Add posted={posted} setPosted={setPosted}/>
+          <List posted={posted}/>
       </div>
   );
 }

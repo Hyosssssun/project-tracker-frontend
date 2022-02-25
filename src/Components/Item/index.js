@@ -3,7 +3,6 @@ import React from "react";
 export default function Item(props) {
     const { projectid, team, week, day, projectname, url } = props.project;
     const arr = url.replace(/['"{}}]+/g, "").split(",")
-    console.log(arr)
     const teamOrPersonal = (bool)=>{
         if(bool === true){
             return "Team Project"
@@ -11,22 +10,22 @@ export default function Item(props) {
             return "Personal Project"
         }
     }
-    let useThis;
-
-    if (week === /^\d+$/ && day === /^\d+$/) {
-        useThis = `W${week}D${day}`;
-    } else {
-        useThis = null;
-    }
 
     return (
-        <div>
-
-            <span>{projectid}</span><br />
-            <span>{teamOrPersonal(team)}</span><br />
-            <span>{useThis}</span><br />
-            <span>{projectname}</span><br />
-            {arr.map((e)=>{
+        <>
+            <span>{projectid}</span>
+            <br />
+            <span>{teamOrPersonal(team)}</span>
+            <br />
+            {team === true ? (
+                <span>
+                    Week {week} Day {day}<br />
+                </span>
+            ) : null}
+            
+            <span>{projectname}</span>
+            <br />
+            {arr.map((e) => {
                 return (
                     <>
                         <a href={e}>{e}</a>
@@ -34,8 +33,8 @@ export default function Item(props) {
                     </>
                 );
             })}
-            
-            <br/>
-        </div>
+
+            <br />
+        </>
     );
 }
