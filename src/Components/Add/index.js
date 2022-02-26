@@ -41,8 +41,6 @@ export default function Add({ posted, setPosted }) {
                 ...newInput,
                 <Input placeholder="Add URL" onChange={settingURL} />,
             ]);
-        } else {
-            window.alert("No URL at all?");
         }
     }
 

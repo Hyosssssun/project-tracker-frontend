@@ -8,7 +8,7 @@ export default function List({ posted }) {
         async function getData(){
             const response = await fetch(
                 "https://hyosun-project-tracker.herokuapp.com/projects/"
-                // {
+                // ,{
                 //     mode: "no-cors",
                 // }
             );
@@ -19,11 +19,6 @@ export default function List({ posted }) {
         
     }, [posted])
     
-    async function deleteProject(){
-        // const response = await fetch(
-        //         "https://hyosun-project-tracker.herokuapp.com/projects/{"
-        console.log("i am deleete project function")
-    }
 
     return (
         <section className="list">
@@ -32,7 +27,7 @@ export default function List({ posted }) {
                 return (
                     <div>
                         <Item project={project} key={project.projectid}>{project}</Item>
-                        <button onClick={deleteProject}>delete</button>
+                        
                     </div>
                 );
             })}
