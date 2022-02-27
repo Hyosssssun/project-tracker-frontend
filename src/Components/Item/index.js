@@ -1,7 +1,9 @@
 import React from "react";
 
 export default function Item(props) {
-    const { projectid, team, week, day, projectname, url } = props.project;
+    const { projectid, team, week, day, projectname, url, projectStatus } =
+        props.project;
+    console.log(projectStatus);
     const urlArr = url.replace(/['"{}}]+/g, "").split(",")
     const teamOrPersonal = (bool)=>{
         if(bool === true){
@@ -12,14 +14,14 @@ export default function Item(props) {
     }
     async function deleteProject(e) {
        const response = await fetch(
-            `https://hyosun-project-tracker.herokuapp.com/projects/${e.target.value}`,{ method:"DELETE"}
+            `https://hyosun-project-tracker.herokuapp.com/projects/${e.target.value}`,{ method:"DELETE" }
         );
         const data = await response.json()
         console.log(data);
     }
 
     return (
-        <form >
+        <form>
             <span>{projectid}</span>
             <br />
             <span>{teamOrPersonal(team)}</span>
@@ -41,7 +43,12 @@ export default function Item(props) {
                     </>
                 );
             })}
-            <button value={projectid} onClick={deleteProject}>delete</button>
+            <br />
+            <span>{projectStatus}</span>
+            <br />
+            <button value={projectid} onClick={deleteProject}>
+                delete
+            </button>
         </form>
     );
 }

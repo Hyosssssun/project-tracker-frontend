@@ -27,11 +27,18 @@ export default function Add({ posted, setPosted }) {
     // projectName
     const [projectName, setProjectName] = useState("");
 
+    // status
+    const [projectStatus, setProjectStatus] = useState("");
+
     // url
     const [url, setUrl] = useState([]);
 
     function onProjectTypeChange(e) {
         setProjectType(e.target.value);
+    }
+
+    function onStatusChange(e) {
+        setProjectStatus(e.target.value);
     }
 
     function makeAnotherInput(e) {
@@ -71,8 +78,23 @@ export default function Add({ posted, setPosted }) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ projectType, week, day, projectName, url }),
+            body: JSON.stringify({
+                projectType,
+                week,
+                day,
+                projectName,
+                url,
+                projectStatus,
+            }),
         });
+        console.log(
+            "i am adding project now" + projectType,
+            week,
+            day,
+            projectName,
+            url,
+            projectStatus
+        );
         setPosted(posted+1)
     }
     //https://hyosun-project-tracker.herokuapp.com/
@@ -87,8 +109,10 @@ export default function Add({ posted, setPosted }) {
                     handleChangeDay={handleChangeDay}
                     projectType={projectType}
                     onProjectTypeChange={onProjectTypeChange}
+                    onStatusChange={onStatusChange}
                     weeks={weeks}
                     days={days}
+                    projectStatus={projectStatus}
                 />
                 <br />
                 <Input
@@ -99,10 +123,7 @@ export default function Add({ posted, setPosted }) {
                 <button className="addURLButton" onClick={makeAnotherInput}>
                     add more URL
                 </button>
-                <button
-                    style={{ color: "black" }}
-                    // onClick={handleSubmit}
-                >
+                <button style={{ color: "black" }} >
                     add project to the list
                 </button>
             </form>

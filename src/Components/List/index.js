@@ -13,21 +13,19 @@ export default function List({ posted }) {
                 // }
             );
             const data = await response.json();
+            console.log(data.payload[data.payload.length - 1].projectStatus);
             setProjectList(data.payload)
         }
         getData()
-        
-    }, [posted])
-    
 
-    return (
+    }, [posted])
+        return (
         <section className="list">
             <h2>Project list</h2>
             {projectList.map((project) => {
                 return (
                     <div>
                         <Item project={project} key={project.projectid}>{project}</Item>
-                        
                     </div>
                 );
             })}
