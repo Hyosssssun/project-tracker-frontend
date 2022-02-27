@@ -73,8 +73,8 @@ export default function Add({ posted, setPosted }) {
         e.preventDefault();
         await fetch("https://hyosun-project-tracker.herokuapp.com/projects/", {
             method: "POST",
-            // credentials: 'include',
-            // mode: 'no-cors',
+            credentials: "include",
+            mode: "no-cors",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -87,14 +87,6 @@ export default function Add({ posted, setPosted }) {
                 projectStatus,
             }),
         });
-        console.log(
-            "i am adding project now" + projectType,
-            week,
-            day,
-            projectName,
-            url,
-            projectStatus
-        );
         setPosted(posted+1)
     }
     //https://hyosun-project-tracker.herokuapp.com/
@@ -123,7 +115,7 @@ export default function Add({ posted, setPosted }) {
                 <button className="addURLButton" onClick={makeAnotherInput}>
                     add more URL
                 </button>
-                <button style={{ color: "black" }} >
+                <button style={{ color: "black" }}>
                     add project to the list
                 </button>
             </form>

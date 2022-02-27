@@ -9,15 +9,18 @@ export default function List({ posted }) {
             const response = await fetch(
                 "https://hyosun-project-tracker.herokuapp.com/projects/"
                 // ,{
+                //     method: "GET",
+                //     credentials: "include",
                 //     mode: "no-cors",
+                //     headers: {
+                //         "Content-Type": "application/json",
+                //     }
                 // }
             );
             const data = await response.json();
-            console.log(data.payload[data.payload.length - 1].projectStatus);
             setProjectList(data.payload)
         }
         getData()
-
     }, [posted])
         return (
         <section className="list">
@@ -25,7 +28,18 @@ export default function List({ posted }) {
             {projectList.map((project) => {
                 return (
                     <div>
-                        <Item project={project} key={project.projectid}>{project}</Item>
+                        <Item
+                            projectid={project.projectid}
+                            team={project.team}
+                            week={project.week}
+                            day={project.day}
+                            projectname={project.projectname}
+                            url={project.url}
+                            projectStatus={project.projectstatus}
+                            key={project.projectid}
+                        >
+                            {project}
+                        </Item>
                     </div>
                 );
             })}

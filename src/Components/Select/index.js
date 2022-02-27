@@ -32,14 +32,11 @@ export default function Select({
                 <Radio.Button value={false}>Personal Project</Radio.Button>
             </Radio.Group>
             <br />
-            <Radio.Group
-                className="status"
-                onChange={onStatusChange}
-            >
+            <Radio.Group className="status" onChange={onStatusChange}>
                 {projectStatus}
-                <Radio.Button value='Done'>Done</Radio.Button>;
-                <Radio.Button value='In Progress'>In Progress</Radio.Button>;
-                <Radio.Button value='Planning'>Planning</Radio.Button>;
+                <Radio.Button value="Done">Done</Radio.Button>;
+                <Radio.Button value="In Progress">In Progress</Radio.Button>;
+                <Radio.Button value="Planning">Planning</Radio.Button>;
             </Radio.Group>
             <br />
             <Radio.Group

@@ -1,22 +1,21 @@
 import React from "react";
 
-export default function Item(props) {
-    const { projectid, team, week, day, projectname, url, projectStatus } =
-        props.project;
-    console.log(projectStatus);
-    const urlArr = url.replace(/['"{}}]+/g, "").split(",")
-    const teamOrPersonal = (bool)=>{
-        if(bool === true){
-            return "Team Project"
-        } else if (bool === false){
-            return "Personal Project"
+export default function Item({ projectid, team, week, day, projectname, url, projectstatus }) {
+    console.log(projectstatus);
+    const urlArr = url.replace(/['"{}}]+/g, "").split(",");
+    const teamOrPersonal = (bool) => {
+        if (bool === true) {
+            return "Team Project";
+        } else if (bool === false) {
+            return "Personal Project";
         }
-    }
+    };
     async function deleteProject(e) {
-       const response = await fetch(
-            `https://hyosun-project-tracker.herokuapp.com/projects/${e.target.value}`,{ method:"DELETE" }
+        const response = await fetch(
+            `https://hyosun-project-tracker.herokuapp.com/projects/${e.target.value}`,
+            { method: "DELETE" }
         );
-        const data = await response.json()
+        const data = await response.json();
         console.log(data);
     }
 
@@ -44,7 +43,7 @@ export default function Item(props) {
                 );
             })}
             <br />
-            <span>{projectStatus}</span>
+            <span>{projectstatus}</span>
             <br />
             <button value={projectid} onClick={deleteProject}>
                 delete
