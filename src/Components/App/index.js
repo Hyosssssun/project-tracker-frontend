@@ -9,7 +9,7 @@ function App() {
   const [posted, setPosted] = useState(0);
   return (
       <div className={css.App}>
-          <h1>PROJECT TRACKER</h1>
+          <h1 className={css.h1}>PROJECT TRACKER</h1>
           <Add posted={posted} setPosted={setPosted}/>
           <List posted={posted}/>
       </div>
