@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Input } from "antd";
 import Select from "../Select";
+import css from "./Add.module.css";
 
 export default function Add({ posted, setPosted }) {
     const [newInput, setNewInput] = useState([
         <Input placeholder="Github Repository" onChange={settingURL} />,
     ]);
 
+    const [display, setDisplay] = useState(false)
     // team
     const [projectType, setProjectType] = useState(Boolean);
 
@@ -68,6 +70,9 @@ export default function Add({ posted, setPosted }) {
         setWeek(e.target.value);
     }
 
+    function addNewProject(){
+        setDisplay(!display)
+    }
     // when button clicked, the info from inputs and select should be added to a database
     async function handleSubmit(e) {
         e.preventDefault();
@@ -93,9 +98,9 @@ export default function Add({ posted, setPosted }) {
     //http://localhost:5432/
 
     return (
-        <section className="addProject">
-            <h2>Add your project</h2>
-            <form onSubmit={handleSubmit}>
+        <section className={css.addProject}>
+            <button className={css.openNewProjectButton} onClick={addNewProject}>Add New Project</button>
+            <form className={ display ? css.form : css.nonDisplay } onSubmit={handleSubmit}>
                 <Select
                     handleChangeWeek={handleChangeWeek}
                     handleChangeDay={handleChangeDay}
@@ -112,7 +117,7 @@ export default function Add({ posted, setPosted }) {
                     onChange={settingProjectName}
                 />
                 {newInput.map((input) => input) /* <-- adding more input box */}
-                <button className="addURLButton" onClick={makeAnotherInput}>
+                <button className={css.addURLButton} onClick={makeAnotherInput}>
                     add more URL
                 </button>
                 <button style={{ color: "black" }}>

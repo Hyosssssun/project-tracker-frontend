@@ -9,9 +9,32 @@ function App() {
   const [posted, setPosted] = useState(0);
   return (
       <div className={css.App}>
-          <h1 className={css.h1}>PROJECT TRACKER</h1>
-          <Add posted={posted} setPosted={setPosted}/>
-          <List posted={posted}/>
+          <div className={css.leftSection}>
+              <h1 className={css.h1}>
+                  <div>
+                      <span>P</span>
+                      <span>R</span>
+                      <span>O</span>
+                      <span>J</span>
+                      <span>E</span>
+                      <span>C</span>
+                      <span>T</span>
+                  </div>
+                  <div>
+                      <span>T</span>
+                      <span>R</span>
+                      <span>A</span>
+                      <span>C</span>
+                      <span>K</span>
+                      <span>E</span>
+                      <span>R</span>
+                  </div>
+              </h1>
+              <Add className={css.add} posted={posted} setPosted={setPosted} />
+          </div>
+          <div className={css.rightSection}>
+              <List className={css.list} posted={posted} />
+          </div>
       </div>
   );
 }

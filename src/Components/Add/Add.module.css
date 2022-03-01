@@ -1,0 +1,34 @@
+.openNewProjectButton {
+    background-color: #292020;
+    border-radius: 2rem;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+    padding: 0.5rem 2rem;
+    margin: 3rem 0 0 6rem; 
+    font-weight: 500;
+}
+.openNewProjectButton:hover{
+    background-color: rgb(216, 214, 214);
+    border-radius: 2rem;
+    border: 1px solid #292020;
+    font-weight: 700;
+    color: #292020;
+    margin: 5rem 0 0 0 ;    
+    padding: 0.5rem 2rem;
+    
+}
+
+
+.form {
+    margin: 2rem 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.nonDisplay {
+    display: none; 
+}
+
