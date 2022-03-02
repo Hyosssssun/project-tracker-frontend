@@ -1,0 +1,33 @@
+
+.label {
+    color: rgba(245, 245, 245, 0.671);
+    font-size:small;
+}
+
+.wrappingSelect {
+    margin: 0 0 0 1rem;
+}
+
+.projectType {
+    background-color: #292020;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+        margin: 0.5rem 0.2rem;
+}
+
+.status {
+        background-color: #292020;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+        margin: 0.5rem 0.2rem;
+}
+
+.weeks,
+.days {
+            background-color: #292020;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+        margin: 0.5rem 0.2rem;
+        width: 6rem;
+        text-align: center;
+}

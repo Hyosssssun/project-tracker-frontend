@@ -5,7 +5,7 @@ import css from "./Add.module.css";
 
 export default function Add({ posted, setPosted }) {
     const [newInput, setNewInput] = useState([
-        <Input placeholder="Github Repository" onChange={settingURL} />,
+        <Input id="urlInput" className={css.urlInput} placeholder="Github Repository" onChange={settingURL} />,
     ]);
 
     const [display, setDisplay] = useState(false)
@@ -43,12 +43,13 @@ export default function Add({ posted, setPosted }) {
         setProjectStatus(e.target.value);
     }
 
+    let lengthOfNewInput = newInput.length+1
     function makeAnotherInput(e) {
-        if (newInput.length > 0) {
+        if (lengthOfNewInput-1 > 0) {
             e.preventDefault();
             setNewInput([
                 ...newInput,
-                <Input placeholder="Add URL" onChange={settingURL} />,
+                <Input className={css.urlInput} placeholder="Add URL" key={lengthOfNewInput} onChange={settingURL} />,
             ]);
         }
     }
@@ -99,30 +100,44 @@ export default function Add({ posted, setPosted }) {
 
     return (
         <section className={css.addProject}>
-            <button className={css.openNewProjectButton} onClick={addNewProject}>Add New Project</button>
-            <form className={ display ? css.form : css.nonDisplay } onSubmit={handleSubmit}>
-                <Select
-                    handleChangeWeek={handleChangeWeek}
-                    handleChangeDay={handleChangeDay}
-                    projectType={projectType}
-                    onProjectTypeChange={onProjectTypeChange}
-                    onStatusChange={onStatusChange}
-                    weeks={weeks}
-                    days={days}
-                    projectStatus={projectStatus}
-                />
-                <br />
-                <Input
-                    placeholder="Project Name"
-                    onChange={settingProjectName}
-                />
-                {newInput.map((input) => input) /* <-- adding more input box */}
-                <button className={css.addURLButton} onClick={makeAnotherInput}>
-                    add more URL
-                </button>
-                <button style={{ color: "black" }}>
-                    add project to the list
-                </button>
+            <button
+                className={css.openNewProjectButton}
+                onClick={addNewProject}
+            >
+                Add New Project
+            </button>
+            <form
+                className={display ? css.form : css.nonDisplay}
+                onSubmit={handleSubmit} >
+                    <Select
+                    className={css.select}
+                        handleChangeWeek={handleChangeWeek}
+                        handleChangeDay={handleChangeDay}
+                        projectType={projectType}
+                        onProjectTypeChange={onProjectTypeChange}
+                        onStatusChange={onStatusChange}
+                        weeks={weeks}
+                        days={days}
+                        projectStatus={projectStatus}
+                    />
+                    <br />
+                    <Input 
+                    className={css.projectNameInput}
+                        placeholder="Project Name"
+                        onChange={settingProjectName}
+                    />
+                    {
+                        newInput.map(
+                            (input) => input
+                        ) /* <-- adding more input box */
+                    }
+                    <button
+                        className={css.addURLButton}
+                        onClick={makeAnotherInput}
+                    >
+                        + Add More URL
+                    </button>
+                <button className={css.submitButton}>Submit</button>
             </form>
         </section>
     );

@@ -1,5 +1,6 @@
-import { Radio } from "antd";
+import { Radio } from 'antd'
 import React, { useState, useEffect } from 'react'
+import css from "./Select.module.css";
 
 export default function Select({
     handleChangeWeek,
@@ -23,43 +24,74 @@ export default function Select({
 
     return (
         <div>
-            <Radio.Group
-                className="projectType"
+            <label className={css.label}> *Project Type : </label>
+            <br />
+            <Radio.Group  className={css.wrappingSelect} 
                 onChange={onProjectTypeChange}
-                defaultValue="Team Project"
+                defaultValue={true}
             >
-                <Radio.Button value={true}>Team Project</Radio.Button>
-                <Radio.Button value={false}>Personal Project</Radio.Button>
+                <Radio.Button className={css.projectType} id="projectType" value={true}>
+                    Team Project
+                </Radio.Button>
+                <Radio.Button className={css.projectType} value={false}>
+                    Personal Project
+                </Radio.Button>
             </Radio.Group>
             <br />
-            <Radio.Group className="status" onChange={onStatusChange}>
+            <label className={css.label}>Status : </label>
+            <br />
+            <Radio.Group  className={css.wrappingSelect} onChange={onStatusChange}>
                 {projectStatus}
-                <Radio.Button value="Done">Done</Radio.Button>;
-                <Radio.Button value="In Progress">In Progress</Radio.Button>;
-                <Radio.Button value="Planning">Planning</Radio.Button>;
+                <Radio.Button className={css.status} value="Done">
+                    Done
+                </Radio.Button>
+                ;
+                <Radio.Button className={css.status} value="In Progress">
+                    In Progress
+                </Radio.Button>
+                ;
+                <Radio.Button className={css.status} value="Planning">
+                    Planning
+                </Radio.Button>
+                ;
             </Radio.Group>
             <br />
-            <Radio.Group
-                className="weeks"
+            <label className={css.label}>Project Week : </label>
+            <br />
+            <Radio.Group className={css.wrappingSelect} 
                 onChange={handleChangeWeek}
                 disabled={disabled}
-                defaultValue="1"
             >
                 {weeks.map((week) => {
                     return (
-                        <Radio.Button value={week}>week {week}</Radio.Button>
+                        <Radio.Button
+                            className={css.weeks}
+                            key={week}
+                            value={week}
+                        >
+                            week {week}
+                        </Radio.Button>
                     );
                 })}
             </Radio.Group>
             <br />
-            <Radio.Group
-                className="days"
+            <label className={css.label}>Project day : </label>
+            <br />
+            <Radio.Group className={css.wrappingSelect} 
                 onChange={handleChangeDay}
                 disabled={disabled}
                 defaultValue="1"
             >
                 {days.map((day) => {
-                    return <Radio.Button value={day}>day {day}</Radio.Button>;
+                    return (
+                        <Radio.Button
+                            className={css.days}
+                            key={day}
+                            value={day}
+                        >
+                            day {day}
+                        </Radio.Button>
+                    );
                 })}
             </Radio.Group>
         </div>

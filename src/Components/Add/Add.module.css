@@ -4,31 +4,69 @@
     border: 1px solid whitesmoke;
     color: whitesmoke;
     padding: 0.5rem 2rem;
-    margin: 3rem 0 0 6rem; 
+    margin: 3rem 0; 
     font-weight: 500;
 }
+
 .openNewProjectButton:hover{
     background-color: rgb(216, 214, 214);
     border-radius: 2rem;
-    border: 1px solid #292020;
+    border: 1px solid #241111;
     font-weight: 700;
     color: #292020;
-    margin: 3rem 0 0 6rem;    
+    margin: 3rem 0; 
     padding: 0.5rem 2rem;
-    
 }
 
-
 .form {
-    margin: 2rem 10rem;
+    padding: 0 9rem 0 1rem; 
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+    align-items:flex-start;
+    border-left: 1px solid rgba(128, 128, 128, 0.596)
 }
 
 .nonDisplay {
     display: none; 
 }
 
+.select:hover {
+    border: 6px solid red
+}
+
+.projectNameInput{
+background-color: #292020;
+    border-radius: 2rem;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+        margin: 0.5rem 0;
+}
+.urlInput {
+background-color: #292020;
+    border-radius: 2rem;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+    margin: 0.5rem 0;
+}
+
+.addURLButton {
+    background-color: #292020;
+    /* border-radius: 2rem;
+    border: 1px solid whitesmoke; */
+    border-style: none;
+    color: whitesmoke;
+    font-size:small;
+    margin: 0.4rem 0 1.2rem 0;
+    /* font-weight: 700; */
+    /* width: 70%; */
+}
+
+.submitButton {
+    background-color: rgb(216, 214, 214);
+    border-radius: 2rem;
+    border: 1px solid #241111;
+    color: #241111;
+    padding: 0.05rem 1.2rem 0.07rem 1.2rem;
+    font-weight: 700;
+    /* width: 70%; */
+}
