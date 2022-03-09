@@ -1,0 +1,33 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+
+.link {
+    color: white;
+    cursor: pointer;
+}
+.link:hover {
+    color:darkgrey
+}
+
+.deleteButton {
+    background-color: #292020;
+    border-radius: 2rem;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+    padding: 0.3rem 2rem;
+    margin: 1rem 0; 
+    font-weight: 500;
+}
+
+.deleteButton:hover{
+    background-color: rgb(216, 214, 214);
+    border-radius: 2rem;
+    border: 1px solid #241111;
+    font-weight: 700;
+    color: #292020;
+    margin: 1rem 0; 
+    padding: 0.3rem 2rem;
+}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import css from "./List.module.css";
 import Item from "../Item";
 
 export default function List({ posted }) {
@@ -23,11 +24,11 @@ export default function List({ posted }) {
         getData()
     }, [posted])
         return (
-        <section className="list">
-            <h2>Project list</h2>
+        <section >
             {projectList.map((project) => {
                 return (
-                    <div>
+                    <div className={css.list} key={project.projectid}>
+                        <span className={css.id}>{project.projectid}</span>
                         <Item
                             projectid={project.projectid}
                             team={project.team}
@@ -36,7 +37,6 @@ export default function List({ posted }) {
                             projectname={project.projectname}
                             url={project.url}
                             projectStatus={project.projectstatus}
-                            key={project.projectid}
                         >
                             {project}
                         </Item>

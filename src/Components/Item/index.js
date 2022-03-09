@@ -1,7 +1,8 @@
 import React from "react";
+import css from "./Item.module.css";
 
 export default function Item({ projectid, team, week, day, projectname, url, projectstatus }) {
-    console.log(projectstatus);
+    // console.log(projectstatus);
     const urlArr = url.replace(/['"{}}]+/g, "").split(",");
     const teamOrPersonal = (bool) => {
         if (bool === true) {
@@ -20,32 +21,31 @@ export default function Item({ projectid, team, week, day, projectname, url, pro
     }
 
     return (
-        <form>
-            <span>{projectid}</span>
-            <br />
-            <span>{teamOrPersonal(team)}</span>
-            <br />
-            {team === true ? (
-                <span>
-                    Week {week} Day {day}
-                    <br />
-                </span>
-            ) : null}
-
-            <span>{projectname}</span>
-            <br />
-            {urlArr.map((e) => {
-                return (
-                    <>
-                        <a href={e}>{e}</a>
-                        <br />
-                    </>
-                );
-            })}
-            <br />
-            <span>{projectstatus}</span>
-            <br />
-            <button value={projectid} onClick={deleteProject}>
+        <form className={css.form}>
+            <div>
+                <div>{teamOrPersonal(team)}</div>
+                {team === true ? (
+                    <div>
+                        Week {week} Day {day}
+                    </div>
+                ) : null}
+                <div>{projectname}</div>
+                {urlArr.map((e) => {
+                    return (
+                        <div key={e.indexOf()}>
+                            <a className={css.link} href={e}>
+                                {e}
+                            </a>
+                        </div>
+                    );
+                })}
+                <div>{projectstatus}</div>
+            </div>
+            <button
+                className={css.deleteButton}
+                value={projectid}
+                onClick={deleteProject}
+            >
                 delete
             </button>
         </form>

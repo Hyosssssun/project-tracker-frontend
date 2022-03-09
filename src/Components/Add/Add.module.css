@@ -19,11 +19,16 @@
 }
 
 .form {
+    margin: 0 0 2rem 0;
     padding: 0 9rem 0 1rem; 
     display: flex;
     flex-direction: column;
     align-items:flex-start;
     border-left: 1px solid rgba(128, 128, 128, 0.596)
+}
+
+.form:last-child {
+    align-items: flex-end;
 }
 
 .nonDisplay {
@@ -61,12 +66,33 @@ background-color: #292020;
     /* width: 70%; */
 }
 
-.submitButton {
+/* .submitButton {
     background-color: rgb(216, 214, 214);
     border-radius: 2rem;
     border: 1px solid #241111;
     color: #241111;
     padding: 0.05rem 1.2rem 0.07rem 1.2rem;
     font-weight: 700;
-    /* width: 70%; */
+    margin: 0 0 1rem 18rem;
+} */
+
+
+.submitButton {
+    background-color: #292020;
+    border-radius: 2rem;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+    padding: 0.3rem 2rem;
+    margin: 0 0 1rem 18rem;
+    font-weight: 500;
+}
+
+.submitButton:hover{
+    background-color: rgb(216, 214, 214);
+    border-radius: 2rem;
+    border: 1px solid #241111;
+    font-weight: 700;
+    color: #292020;
+    margin: 0 0 1rem 18rem; 
+    padding: 0.3rem 2rem;
 }

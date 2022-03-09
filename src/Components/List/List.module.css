@@ -1,0 +1,10 @@
+.list {
+    display: flex;
+    flex-direction: row;
+}
+
+.id {
+    text-align: center;
+    margin: 0 2rem 0 1rem;
+}
+

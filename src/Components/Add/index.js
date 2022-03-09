@@ -120,7 +120,7 @@ export default function Add({ posted, setPosted }) {
                         days={days}
                         projectStatus={projectStatus}
                     />
-                    <br />
+<br />
                     <Input 
                     className={css.projectNameInput}
                         placeholder="Project Name"

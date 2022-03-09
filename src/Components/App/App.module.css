@@ -1,8 +1,7 @@
+
 .App {
   margin:0;
-  /* text-align: center; */
   width: 100%;
-  height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   font-size: 1.5rem;
@@ -14,20 +13,16 @@
   width: 100%;
   margin: 0;
   padding: 0 0 0 6rem;
-  display:flex;
-  flex-direction: column;
-  justify-content:flex-start;
+  display:grid;
+  grid-template-rows: 1fr auto;
   border-right: 2px white solid;
 }
 
 .h1 {
-  /* position:fixed; */
   width: 100%;
-  height: 30%;
   line-height: 5rem;
   margin: 0 2rem 0 0;
   padding: 5rem 0 0 0;
-  /* transform: translate(20%, 20%); */
 }
 
 
@@ -58,7 +53,8 @@
 }
 
 .rightSection {
+  margin: 5rem 0 4rem 2rem;
   display:flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
